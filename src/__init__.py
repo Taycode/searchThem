@@ -1,11 +1,17 @@
 from flask import Flask
 from flask_mongoengine import MongoEngine
+from flask_restx import Api
 
+api = Api()
 db = MongoEngine()
 
 
 def create_app():
     """Creates Flask App"""
     app = Flask(__name__)
+    api.init_app(app)
     db.init_app(app)
+
+    from src.contacts.controllers import contacts_namespace
+    api.add_namespace(contacts_namespace, '/contact')
     return app
