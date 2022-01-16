@@ -2,7 +2,7 @@ from flask import Flask
 from flask_mongoengine import MongoEngine
 from flask_restx import Api
 
-api = Api()
+api = Api(title='Contact Searching app', description='A phonebook with a search engine', doc='/docs/')
 db = MongoEngine()
 
 
