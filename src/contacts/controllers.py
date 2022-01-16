@@ -12,5 +12,5 @@ class CreateContact(Resource):
     @contacts_namespace.expect(create_contact_dto(contacts_namespace))
     def post(self):
         payload = request.json
-        contact = Contact.objects(**payload).save()
-        return contact
+        contact = Contact(**payload).save()
+        return contact.to_json()

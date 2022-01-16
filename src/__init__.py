@@ -9,6 +9,11 @@ db = MongoEngine()
 def create_app():
     """Creates Flask App"""
     app = Flask(__name__)
+    app.config['MONGODB_SETTINGS'] = {
+        'db': 'searchThemDb',
+        'host': 'mongo',
+        'port': 27017
+    }
     api.init_app(app)
     db.init_app(app)
 

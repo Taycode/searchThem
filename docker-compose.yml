@@ -6,3 +6,12 @@ services:
             - "8000:5000"
         volumes:
             - .:/python-docker
+    mongo:
+        container_name: mongo
+        image: mongo
+        volumes:
+          - data:/data/db
+        ports:
+          - "27018:27017"
+volumes:
+  data:
